@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   SMOKE_ITEMS, HOOKAH_CLASSIC_FLAVORS, HOOKAH_SPECIALS,
@@ -11,6 +11,7 @@ import {
 } from '../data/menuData';
 
 const TABS = [
+  { key: 'all',       label: 'All Items', icon: 'fa-list' },
   { key: 'smoke',     label: 'Hookah',    icon: 'fa-fire' },
   { key: 'mocktails', label: 'Mocktails', icon: 'fa-blender' },
   { key: 'cocktails', label: 'Cocktails', icon: 'fa-cocktail' },
@@ -38,7 +39,25 @@ function FoodRow({ items }) {
 }
 
 export default function Menu() {
-  const [activeTab, setActiveTab] = useState('smoke');
+  const [activeTab, setActiveTab] = useState('all');
+  const tabBarRef = useRef(null);
+  const sectionRefs = {
+    all:       useRef(null),
+    smoke:     useRef(null),
+    mocktails: useRef(null),
+    cocktails: useRef(null),
+    bar:       useRef(null),
+    cafe:      useRef(null),
+    food:      useRef(null),
+  };
+
+  const handleTabClick = (key) => {
+    setActiveTab(key);
+    setTimeout(() => {
+      const target = key === 'all' ? tabBarRef.current : sectionRefs[key].current;
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 20);
+  };
 
   return (
     <>
@@ -53,13 +72,13 @@ export default function Menu() {
       </section>
 
       {/* TAB NAV */}
-      <div className="menu-tab-bar">
+      <div className="menu-tab-bar" ref={tabBarRef}>
         <div className="menu-tabs">
           {TABS.map(t => (
             <button
               key={t.key}
               className={`menu-tab${activeTab === t.key ? ' active' : ''}`}
-              onClick={() => setActiveTab(t.key)}
+              onClick={() => handleTabClick(t.key)}
             >
               <i className={`fas ${t.icon}`}></i>
               <span>{t.label}</span>
@@ -69,7 +88,7 @@ export default function Menu() {
       </div>
 
       {/* ── HOOKAH ── */}
-      <div className={`menu-panel${activeTab === 'smoke' ? ' active' : ''}`}>
+      <div ref={sectionRefs.smoke} className={`menu-panel${activeTab === 'smoke' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="hookah-panel">
           <div className="hk-heading">
             <span className="hk-heading-icon"><i className="fas fa-fire"></i></span>
@@ -112,7 +131,7 @@ export default function Menu() {
       </div>
 
       {/* ── MOCKTAILS ── */}
-      <div className={`menu-panel${activeTab === 'mocktails' ? ' active' : ''}`}>
+      <div ref={sectionRefs.mocktails} className={`menu-panel${activeTab === 'mocktails' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="drinks-panel-wrap">
           <div className="drinks-panel-header">
             <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
@@ -130,7 +149,7 @@ export default function Menu() {
       </div>
 
       {/* ── COCKTAILS ── */}
-      <div className={`menu-panel${activeTab === 'cocktails' ? ' active' : ''}`}>
+      <div ref={sectionRefs.cocktails} className={`menu-panel${activeTab === 'cocktails' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="drinks-panel-wrap">
           <div className="drinks-panel-header">
             <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
@@ -148,7 +167,7 @@ export default function Menu() {
       </div>
 
       {/* ── BAR ── */}
-      <div className={`menu-panel${activeTab === 'bar' ? ' active' : ''}`}>
+      <div ref={sectionRefs.bar} className={`menu-panel${activeTab === 'bar' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="bar-panel">
           <div className="bar-inner">
             <div className="panel-header">
@@ -235,7 +254,7 @@ export default function Menu() {
       </div>
 
       {/* ── CAFÉ ── */}
-      <div className={`menu-panel${activeTab === 'cafe' ? ' active' : ''}`}>
+      <div ref={sectionRefs.cafe} className={`menu-panel${activeTab === 'cafe' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="cafe-panel">
           <div className="cafe-inner">
             <div className="panel-header">
@@ -291,7 +310,7 @@ export default function Menu() {
       </div>
 
       {/* ── FOOD ── */}
-      <div className={`menu-panel${activeTab === 'food' ? ' active' : ''}`}>
+      <div ref={sectionRefs.food} className={`menu-panel${activeTab === 'food' || activeTab === 'all' ? ' active' : ''}`}>
         <div className="food-panel">
           <div className="food-inner">
             <div className="panel-header">

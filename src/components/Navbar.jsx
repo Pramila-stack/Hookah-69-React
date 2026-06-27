@@ -1,9 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+const NAV_ITEMS = [
+  { to: '/',        label: 'Home',    icon: 'fa-home',        end: true },
+  { to: '/menu',    label: 'Menu',    icon: 'fa-utensils' },
+  { to: '/reserve', label: 'Reserve', icon: 'fa-calendar' },
+  { to: '/gallery', label: 'Gallery', icon: 'fa-images' },
+  { to: '/team',    label: 'Team',    icon: 'fa-users' },
+  { to: '/contact', label: 'Contact', icon: 'fa-envelope' },
+  { to: '/about',   label: 'About',   icon: 'fa-info-circle' },
+];
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
   const hamburgerRef = useRef(null);
 
   useEffect(() => {
@@ -12,41 +22,39 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close drawer on route change or outside click
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = (e) => {
+      if (hamburgerRef.current && hamburgerRef.current.contains(e.target)) return;
+      setMenuOpen(false);
+    };
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [menuOpen]);
+
   const closeMenu = () => setMenuOpen(false);
 
-  const span1Style = menuOpen ? { transform: 'rotate(45deg) translate(5px, 5px)' } : {};
-  const span2Style = menuOpen ? { opacity: '0' } : {};
-  const span3Style = menuOpen ? { transform: 'rotate(-45deg) translate(5px, -5px)' } : {};
+  const s1 = menuOpen ? { transform: 'rotate(45deg) translate(5px, 5px)' } : {};
+  const s2 = menuOpen ? { opacity: 0 }                                       : {};
+  const s3 = menuOpen ? { transform: 'rotate(-45deg) translate(5px, -5px)' } : {};
 
   return (
-    <nav className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
+    <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
-          <div className="logo-icon-wrap">
-            <i className="fas fa-fire" style={{ color: '#0a0a0a' }}></i>
-          </div>
-          <div className="logo-text">
-            <span className="logo-main">HOOKAH<span>69</span></span>
-            <span className="logo-sub">Premium Bar</span>
-          </div>
+
+        {/* Logo */}
+        <Link to="/" className="nav-logo" onClick={closeMenu}>
+          <img src="/logo.png" alt="Hookah69 Logo" className="nav-logo-img" />
         </Link>
 
-        <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
-          {[
-            { to: '/', label: 'Home', icon: 'fa-home', end: true },
-            { to: '/menu', label: 'Menu', icon: 'fa-utensils' },
-            { to: '/reserve', label: 'Reserve', icon: 'fa-calendar' },
-            { to: '/gallery', label: 'Gallery', icon: 'fa-images' },
-            { to: '/team', label: 'Team', icon: 'fa-users' },
-            { to: '/contact', label: 'Contact', icon: 'fa-envelope' },
-            { to: '/about', label: 'About', icon: 'fa-info-circle' },
-          ].map(({ to, label, icon, end }) => (
+        {/* Desktop nav links */}
+        <ul className="nav-links">
+          {NAV_ITEMS.map(({ to, label, icon, end }) => (
             <li key={to}>
               <NavLink
-                to={to}
-                end={end}
+                to={to} end={end}
                 className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-                onClick={closeMenu}
               >
                 <i className={`fas ${icon}`}></i> {label}
               </NavLink>
@@ -54,6 +62,7 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Desktop right */}
         <div className="nav-right">
           <div className="social-icons">
             <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
@@ -61,22 +70,50 @@ export default function Navbar() {
             <a href="#" className="social-icon"><i className="fab fa-tiktok"></i></a>
           </div>
           <div className="nav-divider"></div>
-          <Link to="/reserve" className="btn btn-gold" style={{ padding: '9px 20px', fontSize: '0.82rem' }}>
-            Reserve Now
-          </Link>
+          <Link to="/reserve" className="btn btn-gold nav-reserve-btn">Reserve Now</Link>
         </div>
 
+        {/* Hamburger */}
         <button
           className="hamburger"
-          id="hamburger"
           ref={hamburgerRef}
           aria-label="Toggle menu"
           onClick={() => setMenuOpen(o => !o)}
         >
-          <span style={span1Style}></span>
-          <span style={span2Style}></span>
-          <span style={span3Style}></span>
+          <span style={s1}></span>
+          <span style={s2}></span>
+          <span style={s3}></span>
         </button>
+      </div>
+
+      {/* Mobile drawer */}
+      <div className={`mobile-drawer${menuOpen ? ' open' : ''}`}>
+        <ul className="mobile-nav-links">
+          {NAV_ITEMS.map(({ to, label, icon, end }) => (
+            <li key={to}>
+              <NavLink
+                to={to} end={end}
+                className={({ isActive }) => `mobile-nav-link${isActive ? ' active' : ''}`}
+                onClick={closeMenu}
+              >
+                <i className={`fas ${icon}`}></i> {label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+        <div className="mobile-drawer-footer">
+          <div className="mobile-socials">
+            <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
+            <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
+            <a href="#" className="social-icon"><i className="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/9779702027432" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <i className="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <Link to="/reserve" className="btn btn-gold btn-block" onClick={closeMenu}>
+            <i className="fas fa-calendar"></i> Reserve Now
+          </Link>
+        </div>
       </div>
     </nav>
   );
