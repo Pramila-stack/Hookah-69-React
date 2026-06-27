@@ -45,7 +45,13 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="nav-logo" onClick={closeMenu}>
-          <img src="/logo.png" alt="Hookah69 Logo" className="nav-logo-img" />
+          <div className="nav-logo-circle">
+            <img src="/logo.png" alt="Hookah69 Logo" className="nav-logo-img" />
+          </div>
+          <div className="logo-text">
+            <span className="logo-main">HOOKAH<span>69</span></span>
+            <span className="logo-sub">Premium Bar</span>
+          </div>
         </Link>
 
         {/* Desktop nav links */}

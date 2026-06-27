@@ -1,14 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  SMOKE_ITEMS, HOOKAH_CLASSIC_FLAVORS, HOOKAH_SPECIALS,
-  SPIRITS, WINES, SHOTS, BEERS,
-  CAFE_ESPRESSO, CAFE_ICE_ESPRESSO, CAFE_ALTERNATIVES, FRAPPES,
-  MILKSHAKES, LASSI, JUICES, MATCHA, TEA,
-  FOOD_SALADS, FOOD_GRAVY, FOOD_RICE_BOWL, FOOD_VEG_SNACKS,
-  FOOD_NONVEG_SNACKS, FOOD_SPECIAL, FOOD_BURGER, FOOD_SIZZLER,
-  FOOD_CHOWMIEN, FOOD_PASTA, FOOD_PIZZA, FOOD_NOODLES, FOOD_MOMO
-} from '../data/menuData';
+import { SMOKE_ITEMS, HOOKAH_CLASSIC_FLAVORS, HOOKAH_SPECIALS } from '../data/menuData';
 
 const TABS = [
   { key: 'all',       label: 'All Items', icon: 'fa-list' },
@@ -20,23 +12,6 @@ const TABS = [
   { key: 'food',      label: 'Food',      icon: 'fa-hamburger' },
 ];
 
-function CafeRow({ items }) {
-  return <>{items.map((item, i) => (
-    <div className="cafe-row" key={i}>
-      <span>{item.name}</span>
-      <span className="cprice">Rs.{item.price}</span>
-    </div>
-  ))}</>;
-}
-
-function FoodRow({ items }) {
-  return <>{items.map((item, i) => (
-    <div className="food-row" key={i}>
-      <span className="fname">{item.name}</span>
-      <span className="fprice">Rs.{item.price}</span>
-    </div>
-  ))}</>;
-}
 
 export default function Menu() {
   const [activeTab, setActiveTab] = useState('all');
@@ -168,254 +143,54 @@ export default function Menu() {
 
       {/* ── BAR ── */}
       <div ref={sectionRefs.bar} className={`menu-panel${activeTab === 'bar' || activeTab === 'all' ? ' active' : ''}`}>
-        <div className="bar-panel">
-          <div className="bar-inner">
-            <div className="panel-header">
-              <div className="section-badge bar-badge"><i className="fas fa-wine-bottle"></i> Bar Menu</div>
-              <h2>Spirits, Wines &amp; More</h2>
-              <p>A curated selection of premium spirits, wines, shots, and beers</p>
+        <div className="drinks-panel-wrap">
+          <div className="drinks-panel-header">
+            <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
+              <i className="fas fa-wine-bottle"></i> Bar Menu
             </div>
-
-            {/* Spirits */}
-            <div className="bar-block">
-              <div className="bar-block-title"><i className="fas fa-bottle-droplet"></i> Spirits</div>
-              <div className="bar-col-header">
-                <span>Name</span>
-                <div className="col-right"><span>30 ml</span><span>Full 750 ml</span></div>
-              </div>
-              {SPIRITS.map((item, i) => (
-                <div className="bar-row" key={i}>
-                  <span className="bar-item-name">{item.name}</span>
-                  <div className="bar-prices">
-                    <span className="bar-price">Rs.{item.price30}</span>
-                    <span className="bar-price">Rs.{item.price750}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Wine */}
-            <div className="bar-block">
-              <div className="bar-block-title"><i className="fas fa-wine-glass-alt"></i> Wine</div>
-              <div className="bar-col-header">
-                <span>Name</span>
-                <div className="col-right"><span>Glass</span><span>Bottle</span></div>
-              </div>
-              {WINES.map((item, i) => (
-                <div className="bar-row" key={i}>
-                  <span className="bar-item-name">{item.name}</span>
-                  <div className="bar-prices">
-                    <span className="bar-price">Rs.{item.glass}</span>
-                    <span className="bar-price">Rs.{item.bottle}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Shots & Beers */}
-            <div className="bar-two-col">
-              <div className="bar-block">
-                <div className="bar-block-title"><i className="fas fa-martini-glass"></i> Shots</div>
-                {SHOTS.map((item, i) => (
-                  <div className="simple-bar-row" key={i}>
-                    <span>{item.name}</span>
-                    <span className="sprice">Rs.{item.price}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="bar-block">
-                <div className="bar-block-title"><i className="fas fa-beer"></i> Beers</div>
-                {BEERS.map((item, i) => (
-                  <div className="simple-bar-row" key={i}>
-                    <span>{item.name}</span>
-                    <span className="sprice">Rs.{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Smoke in bar */}
-            <div className="bar-block" style={{ marginTop: 40 }}>
-              <div className="bar-block-title"><i className="fas fa-fire"></i> Smoke</div>
-              {SMOKE_ITEMS.map((item, i) => (
-                <div className="bar-row" key={i}>
-                  <span className="bar-item-name">
-                    {item.name}{item.desc && <small style={{ fontWeight: 400, color: '#778' }}> ({item.desc})</small>}
-                  </span>
-                  <div className="bar-prices" style={{ gap: 0 }}>
-                    <span className="bar-price">Rs.{item.price}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h2 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', marginTop: 10 }}>
+              Spirits, Wines &amp; <span className="gold">More</span>
+            </h2>
+            <p style={{ color: '#777', marginTop: 10 }}>A curated selection of premium spirits, wines, shots, and beers</p>
           </div>
-          <p className="bar-script">Bar</p>
+          <div className="menu-photo-wrap">
+            <img src="/menu_bar.jpeg" alt="Bar Menu" className="menu-photo" />
+          </div>
         </div>
       </div>
 
       {/* ── CAFÉ ── */}
       <div ref={sectionRefs.cafe} className={`menu-panel${activeTab === 'cafe' || activeTab === 'all' ? ' active' : ''}`}>
-        <div className="cafe-panel">
-          <div className="cafe-inner">
-            <div className="panel-header">
-              <div className="section-badge cafe-badge"><i className="fas fa-coffee"></i> Café Menu</div>
-              <h2>Artisan Café Beverages</h2>
-              <p>Specialty coffees, teas, frappes, matcha, and refreshing cold drinks</p>
+        <div className="drinks-panel-wrap">
+          <div className="drinks-panel-header">
+            <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
+              <i className="fas fa-coffee"></i> Café Menu
             </div>
-            <div className="cafe-columns">
-              <div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-coffee"></i> Espresso Based</div>
-                  <CafeRow items={CAFE_ESPRESSO} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-blender"></i> Frappe</div>
-                  <CafeRow items={FRAPPES} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-mug-saucer"></i> Milkshakes</div>
-                  <CafeRow items={MILKSHAKES} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-glass-water"></i> Lassi</div>
-                  <CafeRow items={LASSI} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-lemon"></i> Fresh Juice</div>
-                  <CafeRow items={JUICES} />
-                </div>
-              </div>
-              <div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-ice-cream"></i> Espresso Based Ice Beverage</div>
-                  <CafeRow items={CAFE_ICE_ESPRESSO} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-mug-hot"></i> Coffee Alternative</div>
-                  <CafeRow items={CAFE_ALTERNATIVES} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title">🍵 Matcha Drinks</div>
-                  <CafeRow items={MATCHA} />
-                </div>
-                <div className="cafe-block">
-                  <div className="cafe-block-title"><i className="fas fa-leaf"></i> Flavour Tea</div>
-                  <CafeRow items={TEA} />
-                </div>
-              </div>
-            </div>
-            <p className="cafe-script">Cafe's</p>
+            <h2 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', marginTop: 10 }}>
+              Artisan <span className="gold">Café</span> Beverages
+            </h2>
+            <p style={{ color: '#777', marginTop: 10 }}>Specialty coffees, teas, frappes, matcha, and refreshing cold drinks</p>
+          </div>
+          <div className="menu-photo-wrap">
+            <img src="/menu_cafe.jpeg" alt="Café Menu" className="menu-photo" />
           </div>
         </div>
       </div>
 
       {/* ── FOOD ── */}
       <div ref={sectionRefs.food} className={`menu-panel${activeTab === 'food' || activeTab === 'all' ? ' active' : ''}`}>
-        <div className="food-panel">
-          <div className="food-inner">
-            <div className="panel-header">
-              <div className="section-badge food-badge"><i className="fas fa-hamburger"></i> Food Menu</div>
-              <h2>Gourmet Kitchen</h2>
-              <p>From light bites to full meals — all crafted fresh in our kitchen daily</p>
+        <div className="drinks-panel-wrap">
+          <div className="drinks-panel-header">
+            <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
+              <i className="fas fa-hamburger"></i> Food Menu
             </div>
-
-            {/* Top grid */}
-            <div className="food-top-grid">
-              <div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-seedling"></i> Salads</div>
-                  <FoodRow items={FOOD_SALADS} />
-                </div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-utensils"></i> Gravy with Rice</div>
-                  <FoodRow items={FOOD_GRAVY} />
-                </div>
-                <div className="food-block">
-                  <div className="food-block-title">🍚 Rice Bowl</div>
-                  <FoodRow items={FOOD_RICE_BOWL} />
-                </div>
-              </div>
-              <div className="food-block">
-                <div className="food-block-title"><i className="fas fa-leaf"></i> Veg-Snacks</div>
-                <FoodRow items={FOOD_VEG_SNACKS} />
-              </div>
-              <div className="food-block">
-                <div className="food-block-title"><i className="fas fa-fish"></i> Non-Veg Snacks</div>
-                <FoodRow items={FOOD_NONVEG_SNACKS} />
-              </div>
-            </div>
-
-            {/* Special box */}
-            <div className="food-special-box">
-              <h3>Hookah69 Special</h3>
-              {FOOD_SPECIAL.map((item, i) => (
-                <div className="food-special-row" key={i}>
-                  <span>{item.name}</span>
-                  <span>Rs.{item.price}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom grid */}
-            <div className="food-bottom-grid">
-              <div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-hamburger"></i> Burger &amp; Sandwich</div>
-                  <FoodRow items={FOOD_BURGER} />
-                </div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-fire-flame-curved"></i> Sizzler</div>
-                  <FoodRow items={FOOD_SIZZLER} />
-                </div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-utensils"></i> Chowmien &amp; Thukpa</div>
-                  <FoodRow items={FOOD_CHOWMIEN} />
-                </div>
-              </div>
-              <div>
-                <div className="food-block">
-                  <div className="food-block-title"><i className="fas fa-utensils"></i> Pasta</div>
-                  <FoodRow items={FOOD_PASTA} />
-                </div>
-                <div className="food-block">
-                  <div className="food-block-title">
-                    <i className="fas fa-pizza-slice"></i> Pizza <small style={{ fontSize: '.75rem', fontWeight: 500, color: '#999', textTransform: 'none', letterSpacing: 0 }}>(Small / Large)</small>
-                  </div>
-                  <FoodRow items={FOOD_PIZZA} />
-                </div>
-              </div>
-              <div>
-                <div className="food-block">
-                  <div className="food-block-title">🍜 Noodles</div>
-                  <FoodRow items={FOOD_NOODLES} />
-                </div>
-              </div>
-            </div>
-
-            {/* MO:MO */}
-            <div className="food-momo-section">
-              <div className="momo-table-title">🥟 MO:MO &nbsp; Steam / Kothey / Jhol / Chilly</div>
-              <table className="momo-table">
-                <thead>
-                  <tr>
-                    <th>Type</th><th>Steam</th><th>Kothey</th><th>Jhol</th><th>Chilly</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {FOOD_MOMO.map((item, i) => (
-                    <tr key={i}>
-                      <td>{item.name}</td>
-                      <td>Rs.{item.steam}</td>
-                      <td>Rs.{item.kothey}</td>
-                      <td>Rs.{item.jhol}</td>
-                      <td>Rs.{item.chilly}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="food-script">Foods</p>
+            <h2 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', marginTop: 10 }}>
+              Gourmet <span className="gold">Kitchen</span>
+            </h2>
+            <p style={{ color: '#777', marginTop: 10 }}>From light bites to full meals — all crafted fresh in our kitchen daily</p>
+          </div>
+          <div className="menu-photo-wrap">
+            <img src="/menu_food.jpeg" alt="Food Menu" className="menu-photo" />
           </div>
         </div>
       </div>

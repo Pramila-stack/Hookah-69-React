@@ -52,7 +52,6 @@ export default function Home() {
               { number: '6', label: 'Hookah Flavors' },
               { number: '10+', label: 'Premium Drinks' },
               { number: '5K+', label: 'Happy Guests' },
-              { number: '8', label: 'Industry Awards' },
             ].map(s => (
               <div className="stat-card reveal" key={s.label}>
                 <span className="stat-number">{s.number}</span>

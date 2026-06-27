@@ -8,40 +8,7 @@ const STATS = [
   { icon: 'fa-users',      number: '5k+', label: 'Happy Guests'     },
 ];
 
-const HIGHLIGHTS = [
-  '50+ Flavors',
-  '18+ Screens',
-  'Mountain Views',
-];
 
-const MISSION_VISION = [
-  {
-    icon: 'fa-fire',
-    title: 'Our Mission',
-    desc: 'To create unforgettable moments through premium hookah experiences, exceptional service, and an atmosphere where every guest feels like family.',
-  },
-  {
-    icon: 'fa-circle-dot',
-    title: 'Our Vision',
-    desc: "To be recognized as Kathmandu's premier lounge destination, setting the standard for quality, entertainment, and hospitality in Nepal's hospitality industry.",
-  },
-];
-
-const DIFFERENCE = [
-  { icon: 'fa-fire',         title: 'Premium Experience',   desc: 'We curate only the finest hookah flavors and beverages for an unforgettable lounge experience.' },
-  { icon: 'fa-music',        title: 'Live Entertainment',   desc: 'From live DJs to sports screenings on our 18+ screens, every night is an event at Hookah69.' },
-  { icon: 'fa-mountain',     title: 'Mountain Views',       desc: 'Nestled in Greenland Chowk Kathmandu, enjoy breathtaking Himalayan views while you relax.' },
-  { icon: 'fa-heart',        title: 'Community First',      desc: "Since 2024, we've been Kathmandu's gathering place for artists, travelers, and locals alike." },
-];
-
-const TIMELINE = [
-  { year: '2022', label: 'Hookah69 founded at Greenland Chowk, Kathmandu' },
-  { year: '2023', label: 'Expanded menu with 50+ hookah flavors' },
-  { year: '2023', label: 'Launched signature cocktail menu' },
-  { year: '2024', label: 'Renovated VIP lounge section' },
-  { year: '2024', label: 'Celebrated 10k+ happy guests' },
-  { year: '2025', label: 'Introduced live music nights & events' },
-];
 
 export default function About() {
   const starsRef = useRef(null);
@@ -95,87 +62,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── STORY ── */}
-      <section className="abt-story-section">
-        <div className="abt-story-grid">
-          {/* Left — image */}
-          <div className="abt-story-img-wrap">
-            <img src="/gallery/lounge1.jpeg" alt="Hookah69 Lounge" className="abt-story-img" />
-            <div className="abt-story-badge">
-              <strong>2+ Years of Excellence</strong>
-              <span>The Heart of Greenland Kathmandu</span>
-            </div>
-          </div>
-
-          {/* Right — text */}
-          <div className="abt-story-text">
-            <h2>The <span className="gold">Hookah69</span> Story</h2>
-            <p>
-              Founded in 2022, Hookah69 began with a simple vision: to create Kathmandu's most premium lounge experience.
-              Nestled in the heart of Greenland Chowk, we've grown from a small hookah bar to the city's premier destination
-              for entertainment and relaxation.
-            </p>
-            <p>
-              Today, we're proud to feature a curated menu of 50+ hookah flavors, and signature cocktails crafted by
-              award-winning mixologists. From live DJ nights to intimate gatherings, every evening at Hookah69 is an experience.
-            </p>
-            <div className="abt-highlights">
-              {HIGHLIGHTS.map((h, i) => (
-                <div className="abt-highlight-item" key={i}>
-                  <i className="fas fa-circle-check"></i> {h}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Mission & Vision */}
-        <div className="abt-mv-grid">
-          {MISSION_VISION.map((item, i) => (
-            <div className="abt-mv-card" key={i}>
-              <div className="abt-mv-icon"><i className={`fas ${item.icon}`}></i></div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── THE HOOKAH69 DIFFERENCE ── */}
-      <section className="abt-diff-section">
-        <div className="section-header">
-          <h2 className="section-title">The <span className="gold">Hookah69</span> Difference</h2>
-          <p className="section-subtitle">What makes us Kathmandu's most loved hookah lounge</p>
-        </div>
-        <div className="abt-diff-grid">
-          {DIFFERENCE.map((d, i) => (
-            <div className="abt-diff-card" key={i}>
-              <div className="abt-diff-icon"><i className={`fas ${d.icon}`}></i></div>
-              <h4>{d.title}</h4>
-              <p>{d.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── JOURNEY TIMELINE ── */}
-      <section className="abt-journey-section">
-        <div className="section-header">
-          <h2 className="section-title">Our <span className="gold">Journey</span></h2>
-          <p className="section-subtitle">Milestones that shaped Hookah69</p>
-        </div>
-        <div className="abt-timeline">
-          {TIMELINE.map((t, i) => (
-            <div className="abt-timeline-card" key={i}>
-              <div className="abt-timeline-num">{i + 1}</div>
-              <div className="abt-timeline-year">{t.year}</div>
-              <p className="abt-timeline-label">{t.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
+{/* ── CTA ── */}
       <section className="cta-section">
         <div className="cta-overlay"></div>
         <div className="cta-content">

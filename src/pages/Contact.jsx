@@ -75,7 +75,6 @@ export default function Contact() {
               <div>
                 <h4>Location</h4>
                 <p>Greenland Chowk, Kathmandu, Nepal</p>
-                <p>Near Baluwatar</p>
               </div>
             </div>
 
@@ -91,8 +90,7 @@ export default function Contact() {
               <div className="info-icon"><i className="fas fa-clock"></i></div>
               <div>
                 <h4>Opening Hours</h4>
-                <p>Sunday – Friday: 9 AM – 10 PM</p>
-                <p>Saturday: 9 AM – 11 PM</p>
+                <p> 9 AM – 10 PM</p>
               </div>
             </div>
 

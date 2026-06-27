@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const REAL_IMGS = [
@@ -18,9 +18,6 @@ const ALL_ITEMS = [
   // ── ADD YOUR VIDEOS BELOW ──
   { img: '/gallery/menu.jpeg', video: '/gallery/video1.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
 
-  { img: '/gallery/menu.jpeg', video: '/gallery/video2.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
-
-  { img: '/gallery/menu.jpeg', video: '/gallery/video3.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
 ];
 
 const FEATURED = ALL_ITEMS.filter(i => i.featured);
@@ -45,7 +42,7 @@ export default function Gallery() {
     };
     frame = requestAnimationFrame(tick);
 
-    const pause = () => cancelAnimationFrame(frame);
+    const pause  = () => cancelAnimationFrame(frame);
     const resume = () => { frame = requestAnimationFrame(tick); };
     track.parentElement.addEventListener('mouseenter', pause);
     track.parentElement.addEventListener('mouseleave', resume);
@@ -56,6 +53,7 @@ export default function Gallery() {
       track.parentElement?.removeEventListener('mouseleave', resume);
     };
   }, []);
+
 
   const toggleLike = (i) => {
     setLikes(prev => prev.map((l, idx) =>
