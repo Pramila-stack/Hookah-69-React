@@ -105,9 +105,8 @@ export default function Contact() {
             <div className="contact-socials">
               <p className="contact-socials-label">Follow Us</p>
               <div className="social-links-row">
-                <a href="#" className="social-icon-lg" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                <a href="#" className="social-icon-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
-                <a href="#" className="social-icon-lg" aria-label="TikTok"><i className="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/hookah69_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon-lg" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@hookah696" className="social-icon-lg" aria-label="TikTok"><i className="fab fa-tiktok"></i></a>
                 <a href="https://wa.me/9779702027432" target="_blank" rel="noopener noreferrer" className="social-icon-lg" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
               </div>
             </div>

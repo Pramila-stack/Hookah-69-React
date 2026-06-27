@@ -1,69 +1,111 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const TEAM = [
   {
-    name: 'Rajan Thapa',
-    role: 'Founder & CEO',
-    initials: 'RT',
-    img: '/team/rajan.jpg',   // drop your photo as public/team/rajan.jpg
-    bio: 'Visionary entrepreneur who transformed a dream into Kathmandu\'s finest hookah lounge. 10+ years in hospitality.',
-    socials: [
-      { icon: 'fa-instagram', url: '#' },
-      { icon: 'fa-facebook',  url: '#' },
-      { icon: 'fa-linkedin',  url: '#' },
-    ],
+    name: 'Prithvi Giri',
+    role: 'Chef',
+    initials: 'PG',
+    img: '/team/prithvi.jpg',
+    bio: 'Prithvi Giri, 23 Age, from Sindhupalchok, is a highly skilled and passionate culinary professional with Six years of experience in the kitchen, including three years as a chef. Beginning his journey from the ground level, he has worked his way up through dedication, discipline, and continuous learning. Having gained experience across different kitchens and environments, Prithvi has refined his skills and developed a sharp understanding of flavors, presentation, and kitchen management. Known for his creativity, leadership, and commitment to excellence, he consistently delivers high-quality dishes while maintaining top standards. His journey, experience, and professionalism make him a standout and valuable asset to any culinary team.',
   },
   {
-    name: 'Priya Sharma',
-    role: 'Head Mixologist',
-    initials: 'PS',
-    img: '/team/priya.jpg',   // drop your photo as public/team/priya.jpg
-    bio: 'Award-winning cocktail artist with training from Mumbai\'s top bars. Creates our signature drinks menu.',
-    socials: [
-      { icon: 'fa-instagram', url: '#' },
-      { icon: 'fa-facebook',  url: '#' },
-    ],
+    name: 'Suresh Giri',
+    role: 'Bartender',
+    initials: 'SG',
+    img: '/team/suresh.jpg',
+    bio: 'Suresh Giri, 21 Age, hailing from Sindhupalchok, is a skilled and passionate hospitality professional with over three years of hands-on experience as both a bartender and barista. Known for his ability to craft quality beverages—ranging from expertly brewed coffee to well-balanced cocktails—he combines creativity with excellent customer service to deliver a memorable experience for every guest. With a strong work ethic and a friendly personality, Suresh consistently brings positive energy to the workplace, making him a valuable addition to any team in the food and beverage industry.',
   },
   {
-    name: 'Bikash Rai',
-    role: 'Hookah Master',
-    initials: 'BR',
-    img: '/team/bikash.jpg',  // drop your photo as public/team/bikash.jpg
-    bio: 'Expert in blending premium hookah flavors. 7 years of experience crafting unforgettable smoke sessions.',
-    socials: [
-      { icon: 'fa-instagram', url: '#' },
-      { icon: 'fa-tiktok',    url: '#' },
-    ],
+    name: 'Shova Gurung',
+    role: 'Waitress',
+    initials: 'SG',
+    img: '/team/shova.jpg',
+    bio: 'Shova Gurung, 20 Age, from Lamjung, is a talented and versatile hospitality professional with four years of experience as a waitress. An all-rounder in both service and bar operations, she is skilled at delivering excellent customer service while also assisting in beverage preparation and bar support. Known for her friendly attitude, strong communication skills, and ability to perform efficiently in fast-paced environments, Shova creates a welcoming and enjoyable experience for every guest. Her adaptability, teamwork, and dedication make her a valuable asset to Hookah69.',
   },
   {
-    name: 'Sunita Lama',
-    role: 'Events Manager',
-    initials: 'SL',
-    img: '/team/sunita.jpg',  // drop your photo as public/team/sunita.jpg
-    bio: 'Orchestrates flawless events from intimate anniversaries to large-scale private parties. Detail-obsessed.',
-    socials: [
-      { icon: 'fa-instagram', url: '#' },
-      { icon: 'fa-facebook',  url: '#' },
-      { icon: 'fa-linkedin',  url: '#' },
-    ],
+    name: 'Roshan Chunara',
+    role: 'Waiter',
+    initials: 'RC',
+    img: '/team/roshan.jpg',
+    bio: 'Roshan Chunara, 23, from Baitadi, is a hardworking and experienced waiter with three years of experience in the hospitality industry. He is known for his polite and professional approach, ensuring guests receive attentive and efficient service. With strong communication skills and the ability to handle busy environments with ease, Roshan consistently creates a positive dining experience for customers. His dedication, teamwork, and friendly attitude make him a valuable asset at Hookah69.',
+  },
+  {
+    name: 'Krishna Gurung',
+    role: 'Cook',
+    initials: 'KG',
+    img: '/team/krishna.jpg',
+    bio: 'Krishna Gurung, 21 Aged, from Gorkha, is a dedicated and hardworking culinary professional with three years of experience in the kitchen. Starting his journey as a helper and steadily working his way up to a cook, he has developed strong skills, discipline, and a deep understanding of kitchen operations. Known for his commitment, reliability, and willingness to learn, Krishna consistently delivers quality food while maintaining high standards of hygiene and teamwork. His growth and determination make him a valuable asset to Hookah69.',
+  },
+  {
+    name: 'Sujan Tamang',
+    role: 'Cook',
+    initials: 'ST',
+    img: '/team/sujan.jpg',
+    bio: 'Sujan Tamang, 21 Aged, from Sindhupalchok, is a passionate and hardworking culinary professional with three years of experience in the kitchen. Starting from the ground level, he has steadily grown through dedication and hands-on learning to become a skilled cook. He has a strong understanding of kitchen operations, food preparation, and maintaining hygiene standards. Known for his discipline, consistency, and eagerness to improve, Sujan brings both energy and commitment to his work, making him a reliable and valuable member of any kitchen team.',
+  },
+  {
+    name: 'Suresh Sunar',
+    role: 'Helper',
+    initials: 'SS',
+    img: '/team/sureshsunar.jpg',
+    bio: 'Suresh Sunar, 20 Age, from Gulmi, is a dedicated and hardworking individual with 2.5 years of experience as a kitchen helper. Starting from the very root, he has gained valuable hands-on knowledge of kitchen operations, food preparation support, and maintaining cleanliness and hygiene standards. Known for his strong work ethic, willingness to learn, and positive attitude, Suresh consistently supports the team with reliability and efficiency, making him a dependable asset in any kitchen environment.',
   },
 ];
 
-function TeamAvatar({ member }) {
+function TeamCard({ member, onView }) {
+  const shortBio = member.bio.length > 120 ? member.bio.slice(0, 120) + '...' : member.bio;
   return (
-    <div className="team-avatar-wrap">
-      <img
-        src={member.img}
-        alt={member.name}
-        className="team-photo"
-        onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
-      />
-      <div className="team-initials" style={{ display: 'none' }}>{member.initials}</div>
+    <div className="tm-card">
+      <div className="tm-card-photo">
+        <img
+          src={member.img}
+          alt={member.name}
+          className="tm-photo-img"
+          onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+        />
+        <div className="tm-photo-fallback" style={{ display: 'none' }}>{member.initials}</div>
+      </div>
+      <div className="tm-card-body">
+        <span className="tm-name">{member.name}</span>
+        <p className="tm-role">{member.role}</p>
+        <p className="tm-bio-short">{shortBio}</p>
+        <button className="tm-view-btn" onClick={() => onView(member)}>View Profile</button>
+      </div>
+    </div>
+  );
+}
+
+function ProfileModal({ member, onClose }) {
+  if (!member) return null;
+  return (
+    <div className="tm-modal-overlay" onClick={onClose}>
+      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+        <button className="tm-modal-close" onClick={onClose}><i className="fas fa-times"></i></button>
+        <div className="tm-modal-top">
+          <div className="tm-modal-avatar">
+            <img
+              src={member.img}
+              alt={member.name}
+              className="tm-modal-img"
+              onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+            />
+            <div className="tm-modal-fallback" style={{ display: 'none' }}>{member.initials}</div>
+          </div>
+          <div className="tm-modal-info">
+            <span className="tm-modal-name">{member.name}</span>
+            <p className="tm-modal-role">{member.role}</p>
+            <p className="tm-modal-bio">{member.bio}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function Team() {
+  const [active, setActive] = useState(null);
+
   return (
     <>
       <section className="page-hero team-hero">
@@ -79,27 +121,17 @@ export default function Team() {
         <div className="section-header">
           <p className="section-eyebrow">Our Family</p>
           <h2 className="section-title">The Faces of <span className="gold">Hookah69</span></h2>
-          <p className="section-subtitle">Every great experience starts with great people. Meet the team that makes Hookah69 extraordinary.</p>
+          <p className="section-subtitle">Every great experience starts with great people.</p>
         </div>
 
-        <div className="team-grid">
+        <div className="tm-grid">
           {TEAM.map((member, i) => (
-            <div className="team-card" key={i}>
-              <TeamAvatar member={member} />
-              <h3 className="team-name">{member.name}</h3>
-              <p className="team-role">{member.role}</p>
-              <p className="team-bio">{member.bio}</p>
-              <div className="team-socials">
-                {member.socials.map((s, j) => (
-                  <a key={j} href={s.url} className="team-social-link" aria-label={s.icon} target="_blank" rel="noopener noreferrer">
-                    <i className={`fab ${s.icon}`}></i>
-                  </a>
-                ))}
-              </div>
-            </div>
+            <TeamCard key={i} member={member} onView={setActive} />
           ))}
         </div>
       </section>
+
+      <ProfileModal member={active} onClose={() => setActive(null)} />
 
       <section className="cta-section">
         <div className="cta-overlay"></div>

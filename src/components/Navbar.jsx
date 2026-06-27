@@ -71,9 +71,8 @@ export default function Navbar() {
         {/* Desktop right */}
         <div className="nav-right">
           <div className="social-icons">
-            <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/hookah69_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@hookah696" className="social-icon"><i className="fab fa-tiktok"></i></a>
           </div>
           <div className="nav-divider"></div>
           <Link to="/reserve" className="btn btn-gold nav-reserve-btn">Reserve Now</Link>
