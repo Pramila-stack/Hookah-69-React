@@ -121,7 +121,15 @@ export default function Home() {
             {REVIEWS.slice(0, 3).map((r, i) => (
               <div className="review-card reveal" key={i}>
                 <div className="review-header">
-                  <div className="review-avatar">{r.initials}</div>
+                  <div className="review-avatar">
+                    <img
+                      src={r.img}
+                      alt={r.name}
+                      className="review-avatar-img"
+                      onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                    />
+                    <span className="review-avatar-initials" style={{ display: 'none' }}>{r.initials}</span>
+                  </div>
                   <div>
                     <div className="review-name">{r.name}</div>
                     <div className="review-date">{r.date_label}</div>

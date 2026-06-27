@@ -1,9 +1,7 @@
 export const REVIEWS = [
-  { name: 'Alex Johnson', initials: 'AJ', text: "Absolutely incredible experience! The hookah flavors were unlike anything I've tried before. The ambience is just perfect for a night out.", likes: 24, date_label: '2 days ago' },
-  { name: 'Sarah Miller', initials: 'SM', text: "Best hookah lounge in Kathmandu! The staff is super friendly and the cocktails are amazing. Will definitely be coming back!", likes: 18, date_label: '1 week ago' },
-  { name: 'Raj Sharma', initials: 'RS', text: "The VIP lounge experience is totally worth it. Live music on weekends makes it even better. Highly recommend the mint-lemon flavor!", likes: 31, date_label: '3 days ago' },
-  { name: 'Emily Chen', initials: 'EC', text: "Such a vibe! The lighting, the music, the hookah — everything was on point. This has become our go-to spot every weekend.", likes: 15, date_label: '5 days ago' },
-  { name: 'Mike Wilson', initials: 'MW', text: "Five stars without question. The premium hookah setup and the signature cocktails are absolutely top-notch. Premium quality all the way.", likes: 42, date_label: '1 day ago' },
+  { name: 'Pramila Tamang',    initials: 'PT', img: '/reviews/pramila.jpeg',  text: "The place was mesmerizing.I went with my friends and it was an amazing experience.", likes: 24, date_label: '2 days ago' },
+  { name: 'Sugam Gurung',      initials: 'SG', img: '/reviews/sugam.jpeg',    text: "Best hookah lounge in Kathmandu! The staff is super friendly and the cocktails are amazing. Will definitely be coming back!", likes: 18, date_label: '1 week ago' },
+  { name: 'Sayara Ale Magar', initials: 'NC', img: '/reviews/sayara.jpeg',  text: "The VIP lounge experience is totally worth it. Live music on weekends makes it even better. Highly recommend the Titaura Martini!", likes: 31, date_label: '3 days ago' },
 ];
 
 export const SMOKE_ITEMS = [
