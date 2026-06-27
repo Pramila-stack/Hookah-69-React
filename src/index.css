@@ -148,10 +148,19 @@ ul  { list-style: none; }
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 70%, rgba(26,39,68,0.95) 100%),
-    url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1920&q=85') center/cover no-repeat;
+  text-align: center; background: #0a0a0a;
   padding-top: 72px; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: url('/gallery/lounge3.jpeg') center 40%/cover no-repeat;
+  animation: heroBgZoom 14s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.55) 70%, rgba(26,39,68,0.9) 100%);
 }
 .hero-content {
   position: relative; z-index: 2; padding: 0 24px; max-width: 860px;
@@ -275,8 +284,27 @@ ul  { list-style: none; }
   position: relative; height: 380px;
   display: flex; align-items: center; justify-content: center; text-align: center;
   background: linear-gradient(rgba(10,10,10,0.65), rgba(26,39,68,0.92)),
-    url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1920&q=80') center/cover no-repeat;
+    url('/gallery/lounge3.jpeg') center/cover no-repeat;
   margin-top: 72px; overflow: hidden;
+}
+/* Animated background via pseudo-element (all page heroes except Team) */
+.page-hero:not(.team-hero)::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: url('/gallery/lounge3.jpeg') center/cover no-repeat;
+  animation: heroBgZoom 12s ease-in-out infinite alternate;
+}
+.page-hero:not(.team-hero) {
+  background: none;
+}
+.page-hero:not(.team-hero) .page-hero-overlay {
+  z-index: 1;
+  background: linear-gradient(rgba(10,10,10,0.65), rgba(26,39,68,0.92));
+}
+.page-hero:not(.team-hero) .page-hero-content { z-index: 2; }
+/* Team hero — plain dark, no image */
+.team-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a2744 100%) !important;
 }
 .page-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(245,166,35,0.06) 0%, transparent 65%); }
 .page-hero-content { position: relative; z-index: 2; padding: 0 24px; }
@@ -394,12 +422,18 @@ textarea.rsv-input { resize: vertical; min-height: 80px; }
    ============================================================ */
 .menu-hero {
   position: relative; height: 300px;
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1200 100%);
+  background: #0a0a0a;
   display: flex; align-items: center; justify-content: center;
   text-align: center; overflow: hidden; margin-top: 72px;
 }
-.menu-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,.12) 0%, transparent 70%); }
-.menu-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+.menu-hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: url('/gallery/lounge3.jpeg') center/cover no-repeat;
+  animation: heroBgZoom 12s ease-in-out infinite alternate;
+}
+.menu-hero-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,.55); }
+.menu-hero-content { position: relative; z-index: 2; padding: 0 24px; }
 .menu-hero-content { position: relative; z-index: 2; padding: 0 24px; }
 .menu-hero-content h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 8px 0; }
 .menu-hero-content p  { color: #aaa; font-size: 1rem; margin-top: 8px; }
@@ -567,7 +601,7 @@ textarea.rsv-input { resize: vertical; min-height: 80px; }
 /* Hero */
 .gal-hero { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .gal-hero-bg { position: absolute; inset: 0; }
-.gal-hero-img { width: 100%; height: 100%; object-fit: cover; filter: blur(2px) brightness(0.35); }
+.gal-hero-img { width: 100%; height: 100%; object-fit: cover; filter: blur(2px) brightness(0.35); animation: heroBgZoom 12s ease-in-out infinite alternate; }
 .gal-hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,17,40,0.75) 0%, rgba(26,39,68,0.6) 100%); }
 .gal-hero-content { position: relative; z-index: 2; text-align: center; padding: 80px 24px 60px; max-width: 750px; }
 .gal-hero-content h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; color: var(--white); line-height: 1.15; margin: 12px 0 16px; }
@@ -748,7 +782,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .value-card p  { color: var(--text-muted); font-size: 0.84rem; line-height: 1.75; }
 
 /* ── Story Section ── */
-.abt-story-section { background: #000; padding: 80px 24px; }
+.abt-story-section { background: #1a2744; padding: 80px 24px; }
 .abt-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto 60px; }
 .abt-story-img-wrap { position: relative; border-radius: 16px; overflow: hidden; }
 .abt-story-img { width: 100%; height: 420px; object-fit: cover; object-position: top; display: block; border-radius: 16px; }
@@ -770,7 +804,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .abt-mv-card p { color: rgba(255,255,255,0.5); font-size: 0.88rem; line-height: 1.75; }
 
 /* Difference */
-.abt-diff-section { background: #060d1a; padding: 80px 24px; }
+.abt-diff-section { background: #1a2744; padding: 80px 24px; }
 .abt-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; }
 .abt-diff-card { background: #0d1526; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 36px 24px; text-align: center; transition: border-color 0.25s, transform 0.25s; }
 .abt-diff-card:hover { border-color: var(--gold); transform: translateY(-4px); }
@@ -779,7 +813,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .abt-diff-card p  { color: rgba(255,255,255,0.45); font-size: 0.82rem; line-height: 1.7; }
 
 /* Journey Timeline */
-.abt-journey-section { background: #000; padding: 80px 24px 100px; }
+.abt-journey-section { background: #1a2744; padding: 80px 24px 100px; }
 .abt-timeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1200px; margin: 0 auto; }
 .abt-timeline-card { background: #0d1526; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 24px 16px; text-align: center; position: relative; transition: border-color 0.25s, transform 0.25s; }
 .abt-timeline-card:hover { border-color: var(--gold); transform: translateY(-4px); }
@@ -901,4 +935,106 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .contact-form-wrap { padding: 28px 20px; }
   .faq-section { padding: 60px 16px; }
   .map-section { padding: 60px 0 0; }
+}
+
+/* ============================================================
+   HERO TEXT SLOW ANIMATIONS
+   ============================================================ */
+@keyframes heroBgZoom {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.08); }
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.hero-animate .hero-anim-1 {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+.hero-animate .hero-anim-2 {
+  opacity: 0;
+  animation: heroFadeUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+}
+.hero-animate .hero-anim-3 {
+  opacity: 0;
+  animation: heroFadeUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+}
+.hero-animate .hero-anim-4 {
+  opacity: 0;
+  animation: heroFadeUp 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+
+/* ============================================================
+   PAGE TRANSITION
+   ============================================================ */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.page-enter {
+  opacity: 0;
+}
+.page-enter-active {
+  animation: pageFadeIn 0.45s ease forwards;
+}
+
+/* ============================================================
+   TEXT HOVER EFFECTS
+   ============================================================ */
+
+/* Headings — subtle gold shimmer on hover */
+h1, h2, h3, h4 {
+  transition: color 0.25s ease;
+}
+h1:hover, h2:hover, h3:hover, h4:hover {
+  color: var(--orange-light);
+  cursor: default;
+}
+
+/* Nav links — already handled; skip */
+
+/* Paragraph / body text — very subtle brightening */
+p {
+  transition: color 0.2s ease;
+}
+p:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Gold spans — intensify glow on hover */
+.gold:hover, .orange:hover {
+  text-shadow: 0 0 12px rgba(245, 166, 35, 0.7);
+  cursor: default;
+}
+
+/* Section eyebrow pills — lift effect */
+.section-eyebrow {
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
+}
+.section-eyebrow:hover {
+  letter-spacing: 3px;
+  color: var(--orange-light);
+  cursor: default;
+}
+
+/* Card titles inside team / timeline / diff cards */
+.team-name:hover,
+.abt-timeline-year:hover,
+.abt-diff-card h4:hover,
+.abt-mv-card h3:hover,
+.hk-special-name:hover {
+  color: var(--orange);
+  text-shadow: 0 0 10px rgba(245, 166, 35, 0.4);
+}
+
+/* Stat numbers */
+.abt-stat-number:hover,
+.stat-number:hover {
+  color: var(--orange-light);
+  text-shadow: 0 0 16px rgba(245, 166, 35, 0.6);
+  cursor: default;
 }

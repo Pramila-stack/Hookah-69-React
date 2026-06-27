@@ -66,7 +66,7 @@ function TeamAvatar({ member }) {
 export default function Team() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero team-hero">
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <p className="section-eyebrow">The People Behind the Magic</p>

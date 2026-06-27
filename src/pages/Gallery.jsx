@@ -68,14 +68,14 @@ export default function Gallery() {
       {/* ── HERO ── */}
       <section className="gal-hero">
         <div className="gal-hero-bg">
-          <img src="/gallery/lounge1.jpeg" alt="" className="gal-hero-img" />
+          <img src="/gallery/lounge2.jpeg" alt="" className="gal-hero-img" />
           <div className="gal-hero-overlay"></div>
         </div>
-        <div className="gal-hero-content">
-          <p className="section-eyebrow">Visual Stories</p>
-          <h1>Our Gallery<br /><span className="gold">Moments at Hookah69</span></h1>
-          <p>Take a visual journey through our premium lounge experience</p>
-          <div className="gal-hero-stats">
+        <div className="gal-hero-content hero-animate">
+          <p className="section-eyebrow hero-anim-1">Visual Stories</p>
+          <h1 className="hero-anim-2">Our Gallery<br /><span className="gold">Moments at Hookah69</span></h1>
+          <p className="hero-anim-3">Take a visual journey through our premium lounge experience</p>
+          <div className="gal-hero-stats hero-anim-4">
             <div className="gal-stat"><span className="gold">20+</span><small>Photos</small></div>
             <div className="gal-stat"><span className="gold">4</span><small>Videos</small></div>
             <div className="gal-stat"><span className="gold">6</span><small>Categories</small></div>

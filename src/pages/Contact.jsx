@@ -55,10 +55,10 @@ export default function Contact() {
     <>
       <section className="page-hero">
         <div className="page-hero-overlay"></div>
-        <div className="page-hero-content">
-          <p className="section-eyebrow">Get In Touch</p>
-          <h1>Contact <span className="gold">Us</span></h1>
-          <p>We'd love to hear from you</p>
+        <div className="page-hero-content hero-animate">
+          <p className="section-eyebrow hero-anim-1">Get In Touch</p>
+          <h1 className="hero-anim-2">Contact <span className="gold">Us</span></h1>
+          <p className="hero-anim-3">We'd love to hear from you</p>
         </div>
       </section>
 

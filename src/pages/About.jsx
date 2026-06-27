@@ -2,16 +2,15 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const STATS = [
-  { icon: 'fa-star',       number: '2024', label: 'Year Established' },
-  { icon: 'fa-fire',       number: '50+',  label: 'Hookah Flavors'   },
-  { icon: 'fa-wine-glass', number: '100+', label: 'Premium Drinks'   },
-  { icon: 'fa-users',      number: '10k+', label: 'Happy Guests'     },
+  { icon: 'fa-star',       number: '2022', label: 'Year Established' },
+  { icon: 'fa-fire',       number: '6+',  label: 'Hookah Flavors'   },
+  { icon: 'fa-wine-glass', number: '10+', label: 'Premium Drinks'   },
+  { icon: 'fa-users',      number: '5k+', label: 'Happy Guests'     },
 ];
 
 const HIGHLIGHTS = [
   '50+ Flavors',
   '18+ Screens',
-  'Live Music',
   'Mountain Views',
 ];
 

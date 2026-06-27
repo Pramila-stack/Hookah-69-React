@@ -45,10 +45,10 @@ export default function Menu() {
       {/* HERO */}
       <section className="menu-hero">
         <div className="menu-hero-overlay"></div>
-        <div className="menu-hero-content">
-          <div className="section-badge"><i className="fas fa-utensils"></i> Our Menu <i className="fas fa-utensils"></i></div>
-          <h1>Explore Our <span className="gold">Flavors</span></h1>
-          <p>From premium hookahs to handcrafted cocktails, gourmet food to artisan café beverages.</p>
+        <div className="menu-hero-content hero-animate">
+          <div className="section-badge hero-anim-1"><i className="fas fa-utensils"></i> Our Menu <i className="fas fa-utensils"></i></div>
+          <h1 className="hero-anim-2">Explore Our <span className="gold">Flavors</span></h1>
+          <p className="hero-anim-3">From premium hookahs to handcrafted cocktails, gourmet food to artisan café beverages.</p>
         </div>
       </section>
 
