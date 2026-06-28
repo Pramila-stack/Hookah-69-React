@@ -202,17 +202,17 @@ ul  { list-style: none; }
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   background: rgba(26,39,68,0.9); backdrop-filter: blur(12px);
   border: 1px solid rgba(245,166,35,0.2); border-radius: var(--radius-lg);
-  overflow: hidden; transform: translateY(36px);
+  overflow: hidden; transform: translateY(20px);
 }
 .stat-card {
-  padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 22px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px;
   text-align: center; border-right: 1px solid rgba(255,255,255,0.08);
   transition: background var(--transition); cursor: default;
 }
 .stat-card:last-child { border-right: none; }
 .stat-card:hover { background: rgba(255,255,255,0.05); }
-.stat-number { font-family: var(--font-sans); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; }
-.stat-label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+.stat-number { font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 600; }
 
 /* ============================================================
    FEATURES
@@ -537,6 +537,13 @@ textarea.rsv-input { resize: vertical; min-height: 80px; }
 .menu-photo { width: 100%; height: auto; display: block; }
 .drinks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
 .drinks-panel-header { text-align: center; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.smoke-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+.smoke-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.smoke-row:last-child { border-bottom: none; }
+.smoke-row-left { display: flex; flex-direction: column; gap: 4px; }
+.smoke-name { font-size: 1.05rem; font-weight: 700; color: var(--white); }
+.smoke-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.smoke-price { font-size: 1.05rem; font-weight: 700; color: var(--orange); white-space: nowrap; flex-shrink: 0; }
 .drink-card { background: #111; border: 1px solid #222; border-radius: 16px; padding: 28px 24px; transition: all .25s; position: relative; display: flex; flex-direction: column; }
 .drink-card--cocktail { border-top: 3px solid var(--gold); }
 .drink-card:hover { border-color: var(--gold); transform: translateY(-4px); background: #161616; }

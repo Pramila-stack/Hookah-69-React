@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-const TABLES = ['T1','T2','T3','T4','VIP1','VIP2','VIP3','OUT1','OUT2'];
 const EVENTS = [
   { key: 'Casual Hangout',       icon: 'fa-champagne-glasses' },
   { key: 'Birthday Celebration', icon: 'fa-cake-candles' },
@@ -10,7 +9,6 @@ const EVENTS = [
 ];
 
 export default function Reserve() {
-  const [selectedTable, setSelectedTable] = useState('');
   const [selectedEvent, setSelectedEvent] = useState('Casual Hangout');
   const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', time: '', guests: '2', special: '' });
 
@@ -22,13 +20,8 @@ export default function Reserve() {
       alert('Please fill in Full Name, Phone Number, Date and Time before confirming.');
       return;
     }
-    if (!selectedTable) {
-      alert('Please select a table number.');
-      return;
-    }
     const msg =
       '🪔 *Hookah69 Reservation Request*\n\n' +
-      '📋 *Table:* ' + selectedTable + '\n' +
       '🎉 *Event:* ' + selectedEvent + '\n' +
       '👤 *Name:* ' + name + '\n' +
       (email ? '📧 *Email:* ' + email + '\n' : '') +
@@ -61,21 +54,6 @@ export default function Reserve() {
               <div className="rsv-form-header">
                 <h3>Reserve Your Table</h3>
                 <p>Fill in the details and we'll send your booking via WhatsApp</p>
-              </div>
-
-              {/* Table Selector */}
-              <div className="rsv-field-group">
-                <label className="rsv-label"><i className="fas fa-chair"></i> Select Table Number *</label>
-                <div className="table-grid">
-                  {TABLES.map(t => (
-                    <button
-                      key={t}
-                      type="button"
-                      className={`tbl-btn${selectedTable === t ? ' selected' : ''}`}
-                      onClick={() => setSelectedTable(t)}
-                    >{t}</button>
-                  ))}
-                </div>
               </div>
 
               {/* Event Type */}

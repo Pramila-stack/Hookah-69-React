@@ -9,10 +9,13 @@ export default function Footer() {
         <div>
           <Link to="/" className="footer-logo">
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="logo-icon-wrap" style={{ width: 40, height: 40 }}>
-                <i className="fas fa-fire" style={{ color: '#0a0a0a', fontSize: '0.9rem' }}></i>
+              <div className="nav-logo-circle" style={{ width: 44, height: 44 }}>
+                <img src="/logo.png" alt="Hookah69 Logo" className="nav-logo-img" />
               </div>
-              <span className="logo-main" style={{ fontSize: '1rem' }}>HOOKAH<span>69</span></span>
+              <div className="logo-text">
+                <span className="logo-main" style={{ fontSize: '1rem' }}>HOOKAH<span>69</span></span>
+                <span className="logo-sub">Premium Bar</span>
+              </div>
             </div>
           </Link>
           <p className="footer-tagline">

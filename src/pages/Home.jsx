@@ -76,7 +76,7 @@ export default function Home() {
               { icon: 'fa-fire', title: 'Premium Hookah', desc: 'Handcrafted sessions with the finest tobacco blends and fresh fruit bases. Every puff, perfected.' },
               { icon: 'fa-cocktail', title: 'Signature Cocktails', desc: 'Innovative cocktails crafted by our award-winning mixologist using premium spirits and local ingredients.' },
               { icon: 'fa-heart', title: 'Best Courtesy', desc: 'Our trained staff goes beyond service — we create personal connections that keep guests coming back.' },
-              { icon: 'fa-map-marker-alt', title: 'Center Location', desc: 'Conveniently located at Greenland Chowk, the heart of Kathmandu. Easy to find, impossible to forget.' },
+              { icon: 'fa-map-marker-alt', title: 'Center Location', desc: 'Conveniently located at Greenland Chowk,Toka. Easy to find, impossible to forget.' },
               { icon: 'fa-utensils', title: 'Gourmet Food', desc: 'Curated menu of global bites and local favorites — from zesty momos to sizzling platters.' },
             ].map(f => (
               <div className="feature-card reveal" key={f.title}>

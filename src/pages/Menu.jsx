@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SMOKE_ITEMS, HOOKAH_CLASSIC_FLAVORS, HOOKAH_SPECIALS } from '../data/menuData';
+import { SMOKE_ITEMS } from '../data/menuData';
 
 const TABS = [
   { key: 'all',       label: 'All Items', icon: 'fa-list' },
@@ -64,43 +64,25 @@ export default function Menu() {
 
       {/* ── HOOKAH ── */}
       <div ref={sectionRefs.smoke} className={`menu-panel${activeTab === 'smoke' || activeTab === 'all' ? ' active' : ''}`}>
-        <div className="hookah-panel">
-          <div className="hk-heading">
-            <span className="hk-heading-icon"><i className="fas fa-fire"></i></span>
-            <h2>Hookah</h2>
-          </div>
-
-          <div className="hk-grid">
-            {/* Classic Flavors */}
-            <div className="hk-card">
-              <h3 className="hk-card-title"><i className="fas fa-leaf"></i> Classic Flavors</h3>
-              <div className="hk-flavors-grid">
-                {HOOKAH_CLASSIC_FLAVORS.map((f, i) => (
-                  <div className="hk-flavor-pill" key={i}>{f}</div>
-                ))}
-              </div>
+        <div className="drinks-panel-wrap">
+          <div className="drinks-panel-header">
+            <div className="section-badge" style={{ justifyContent: 'center', display: 'inline-flex' }}>
+              <i className="fas fa-fire"></i> Hookah Menu
             </div>
-
-            {/* Signature Specials */}
-            <div className="hk-card hk-card--special">
-              <h3 className="hk-card-title"><i className="fas fa-fire"></i> Signature Specials</h3>
-              <div className="hk-specials-list">
-                {HOOKAH_SPECIALS.map((item, i) => (
-                  <div className="hk-special-item" key={i}>
-                    <div className="hk-special-left">
-                      <span className="hk-special-name">{item.name}</span>
-                      <span className="hk-special-desc">{item.desc}</span>
-                    </div>
-                    {item.price && <span className="hk-special-price">Rs. {item.price}</span>}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <h2 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', marginTop: 10 }}>
+              Premium <span className="gold">Hookah</span>
+            </h2>
           </div>
-
-          <div className="menu-note">
-            <i className="fas fa-info-circle"></i>
-            All hookah sessions include coal service &amp; setup. Add-ons available at the counter.
+          <div className="smoke-list">
+            {SMOKE_ITEMS.map((item, i) => (
+              <div className="smoke-row" key={i}>
+                <div className="smoke-row-left">
+                  <span className="smoke-name">{item.name}</span>
+                  {item.desc && <span className="smoke-desc">({item.desc})</span>}
+                </div>
+                <span className="smoke-price">Rs.{item.price}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

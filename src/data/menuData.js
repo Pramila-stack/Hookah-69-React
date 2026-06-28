@@ -1,7 +1,7 @@
 export const REVIEWS = [
   { name: 'Pramila Tamang',    initials: 'PT', img: '/reviews/pramila.jpeg',  text: "The place was mesmerizing.I went with my friends and it was an amazing experience.", likes: 24, date_label: '2 days ago' },
   { name: 'Sugam Gurung',      initials: 'SG', img: '/reviews/sugam.jpeg',    text: "Best hookah lounge in Kathmandu! The staff is super friendly and the cocktails are amazing. Will definitely be coming back!", likes: 18, date_label: '1 week ago' },
-  { name: 'Sayara Ale Magar', initials: 'NC', img: '/reviews/sayara.jpeg',  text: "The VIP lounge experience is totally worth it. Live music on weekends makes it even better. Highly recommend the Titaura Martini!", likes: 31, date_label: '3 days ago' },
+  { name: 'Sayara Ale Magar', initials: 'NC', img: '/reviews/sayara.jpeg',  text: "Loved the ambience.Highly recommend the Titaura Martini!", likes: 31, date_label: '3 days ago' },
 ];
 
 export const SMOKE_ITEMS = [
