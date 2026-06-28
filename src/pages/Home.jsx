@@ -51,7 +51,7 @@ export default function Home() {
         <div className="stats-section">
           <div className="stats-inner">
             {[
-              { number: '6', label: 'Hookah Flavors' },
+              { number: 'Different', label: 'Hookah Flavors' },
               { number: '10+', label: 'Premium Drinks' },
               { number: '5K+', label: 'Happy Guests' },
             ].map(s => (

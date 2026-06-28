@@ -8,7 +8,7 @@ export const REVIEWS = [
 ];
 
 export const SMOKE_ITEMS = [
-  { name: '69 Premium Hookah', desc: 'Mint / Lady Killer / Blueberry / Paan', price: '750', icon: '🌿', badge: 'POPULAR' },
+  { name: '69 Premium Hookah', desc: 'Mint / Lady Killer / Blueberry / 1001 Knight', price: '750', icon: '🌿', badge: 'POPULAR' },
   { name: 'Luxury Pot Hookah', desc: 'Al Fakhir Mint / Lady Killer', price: '1,111', icon: '🪄', badge: 'PREMIUM' },
 
 ];
