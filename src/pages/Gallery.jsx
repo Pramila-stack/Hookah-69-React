@@ -13,7 +13,7 @@ const LOGO_PLACEHOLDER = '/hookah69-logo.png'; // fallback — will use CSS grad
 
 const ALL_ITEMS = [
   { img: '/gallery/lounge1.jpeg', title: 'Main Lounge Area',    desc: 'Our luxurious main lounge with mountain views',     date: '2024-02-15', featured: true  },
-  { img: '/gallery/lounge2.jpeg', title: 'VIP Section',         desc: 'Exclusive VIP area for private gatherings',         date: '2024-02-10', featured: true  },
+  { img: '/gallery/lounge2.jpeg', title: 'Lounge',              desc: 'Comfortable lounge area for gatherings',    date: '2024-02-10', featured: true  },
   { img: '/gallery/lounge3.jpeg', title: 'Outdoor Seating',     desc: 'Beautiful outdoor space with open-air ambience',    date: '2024-02-05', featured: false },
   // ── ADD YOUR VIDEOS BELOW ──
   { img: '/gallery/menu.jpeg', video: '/gallery/video1.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
