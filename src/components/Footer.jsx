@@ -22,9 +22,10 @@ export default function Footer() {
             Kathmandu's premium hookah lounge — where every evening is an unforgettable experience.
           </p>
           <div className="footer-social">
-            <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-tiktok"></i></a>
+            <div className="social-icons">
+              <a href="https://www.instagram.com/hookah69_official" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@hookah696" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-tiktok"></i></a>
+            </div>
           </div>
         </div>
 
@@ -60,7 +61,7 @@ export default function Footer() {
             </li>
             <li>
               <i className="fas fa-envelope"></i>
-              <a href="mailto:gyaudan@gmail.com">gyaudan@gmail.com</a>
+              <a href="mailto:hookah403@gmail.com">hookah403@gmail.com</a>
             </li>
           </ul>
         </div>

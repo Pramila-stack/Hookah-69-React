@@ -108,12 +108,8 @@ export default function Navbar() {
         </ul>
         <div className="mobile-drawer-footer">
           <div className="mobile-socials">
-            <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-            <a href="#" className="social-icon"><i className="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/9779702027432" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <i className="fab fa-whatsapp"></i>
-            </a>
+            <a href="https://www.instagram.com/hookah69_official" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@hookah696" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-tiktok"></i></a>
           </div>
           <Link to="/reserve" className="btn btn-gold btn-block" onClick={closeMenu}>
             <i className="fas fa-calendar"></i> Reserve Now

@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { REVIEWS } from '../data/menuData';
 
+const SHUFFLED = [...REVIEWS].sort(() => Math.random() - 0.5);
+
 export default function Home() {
-  const [likes, setLikes] = useState(REVIEWS.map(r => ({ count: r.likes, liked: false })));
+  const [likes, setLikes] = useState(SHUFFLED.map(r => ({ count: r.likes, liked: false })));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,7 +35,7 @@ export default function Home() {
             Premium hookah sessions, handcrafted cocktails, and gourmet bites in Kathmandu's most stylish lounge.
           </p>
           <div className="hero-meta">
-            <span className="hero-meta-item"><i className="fas fa-clock"></i> Open Daily 9 AM – 10 PM (Kitches closes 9:20PM)</span>
+            <span className="hero-meta-item"><i className="fas fa-clock"></i> Open Daily 9 AM – 10 PM (Kitchen closes 9:20PM)</span>
             <span className="hero-meta-item"><i className="fas fa-map-marker-alt"></i> Greenland Chowk, KTM</span>
           </div>
           <div className="hero-buttons">
@@ -117,7 +119,7 @@ export default function Home() {
           </div>
 
           <div className="reviews-grid">
-            {REVIEWS.slice(0, 3).map((r, i) => (
+            {SHUFFLED.map((r, i) => (
               <div className="review-card reveal" key={i}>
                 <div className="review-header">
                   <div className="review-avatar">
@@ -132,9 +134,6 @@ export default function Home() {
                   <div>
                     <div className="review-name">{r.name}</div>
                     <div className="review-date">{r.date_label}</div>
-                  </div>
-                  <div className="review-stars">
-                    {[1,2,3,4,5].map(s => <i key={s} className="fas fa-star"></i>)}
                   </div>
                 </div>
                 <p className="review-text">"{r.text}"</p>

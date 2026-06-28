@@ -1,13 +1,16 @@
 export const REVIEWS = [
-  { name: 'Pramila Tamang',    initials: 'PT', img: '/reviews/pramila.jpeg',  text: "The place was mesmerizing.I went with my friends and it was an amazing experience.", likes: 24, date_label: '2 days ago' },
+  { name: 'Pramila Tamang',    initials: 'PT', img: '/reviews/pramila.jpeg',  text: "The place was mesmerizing. I went with my friends and it was an amazing experience.", likes: 24, date_label: '2 days ago' },
   { name: 'Sugam Gurung',      initials: 'SG', img: '/reviews/sugam.jpeg',    text: "Best hookah lounge in Kathmandu! The staff is super friendly and the cocktails are amazing. Will definitely be coming back!", likes: 18, date_label: '1 week ago' },
-  { name: 'Sayara Ale Magar', initials: 'NC', img: '/reviews/sayara.jpeg',  text: "Loved the ambience.Highly recommend the Titaura Martini!", likes: 31, date_label: '3 days ago' },
+  { name: 'Sayara Ale Magar',  initials: 'SA', img: '/reviews/sayara.jpeg',   text: "Loved the ambience. Highly recommend the Titaura Martini!", likes: 31, date_label: '3 days ago' },
+  { name: 'Pushpa Gurung',     initials: 'PG', img: '/reviews/pushpa.jpeg',   text: "I had an amazing experience! The food was full of flavor and perfectly cooked — you can really taste the freshness in every bite. The atmosphere was cozy, and the staff were friendly and attentive. Definitely one of the best meals I've had in a while!", likes: 42, date_label: '7 months ago' },
+  { name: 'Rhitika Puri',      initials: 'RP', img: '/reviews/rhitika.jpeg',  text: "Such a wonderful spot! The menu has a great variety, and everything we ordered tasted incredible. The portion sizes were generous, and the presentation was lovely. Great value for money and a must-visit for food lovers.", likes: 37, date_label: '7 months ago' },
+  { name: 'Sumir Acharya',     initials: 'SA', img: '/reviews/sumir.jpeg',    text: "The place offers a nice vibe and sitting. The food tastes much better than the others in the area. Prices were reasonable and the staff are polite and sweet. Definitely recommend it. Don't forget to try their Hookah 69 platter — it's a good one.", likes: 29, date_label: '3 years ago' },
 ];
 
 export const SMOKE_ITEMS = [
   { name: '69 Premium Hookah', desc: 'Mint / Lady Killer / Blueberry / Paan', price: '750', icon: '🌿', badge: 'POPULAR' },
   { name: 'Luxury Pot Hookah', desc: 'Al Fakhir Mint / Lady Killer', price: '1,111', icon: '🪄', badge: 'PREMIUM' },
-  { name: 'Cigarettes', desc: 'Per piece', price: '30/pcs', icon: '🚬', badge: '' },
+
 ];
 
 export const HOOKAH_CLASSIC_FLAVORS = [

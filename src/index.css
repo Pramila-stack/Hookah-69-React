@@ -710,11 +710,13 @@ video.gal-card-img { object-fit: cover; background: #000; }
 .tm-view-btn:hover { background: rgba(245,166,35,0.12); border-color: var(--orange); color: var(--orange); }
 
 /* ── Profile modal ── */
-.tm-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); overflow-y: auto; }
-.tm-modal { background: #12213a; border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; max-width: 720px; width: 100%; padding: 32px; position: relative; margin: auto; }
-.tm-modal-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); border: none; color: var(--white); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-.tm-modal-close:hover { background: rgba(255,255,255,0.2); }
-.tm-modal-top { display: flex; gap: 24px; margin-bottom: 24px; }
+.tm-modal-overlay { position: fixed; inset: 0; z-index: 9999; overflow-y: auto; }
+.tm-modal { background: #0d1b2e; min-height: 100vh; width: 100%; padding: 48px 32px; position: relative; max-width: 100%; border-radius: 0; }
+.tm-modal-close { position: fixed; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--white); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10000; }
+.tm-modal-close:hover { background: rgba(255,255,255,0.25); }
+.tm-modal-top { display: flex; flex-direction: column; gap: 24px; margin-bottom: 32px; align-items: flex-start; max-width: 800px; }
+@media (min-width: 600px) { .tm-modal-top { flex-direction: row; } }
+.tm-modal-bio { color: rgba(255,255,255,0.75); font-size: 1rem; line-height: 1.85; margin-bottom: 20px; max-width: 800px; }
 .tm-modal-avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid rgba(245,166,35,0.5); }
 .tm-modal-img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .tm-modal-fallback { width: 100%; height: 100%; display: none; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; color: var(--orange); background: #0a1628; }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 
 const TEAM = [
@@ -78,9 +79,9 @@ function TeamCard({ member, onView }) {
 
 function ProfileModal({ member, onClose }) {
   if (!member) return null;
-  return (
-    <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+  return createPortal(
+    <div className="tm-modal-overlay">
+      <div className="tm-modal">
         <button className="tm-modal-close" onClick={onClose}><i className="fas fa-times"></i></button>
         <div className="tm-modal-top">
           <div className="tm-modal-avatar">
@@ -99,12 +100,16 @@ function ProfileModal({ member, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
 export default function Team() {
   const [active, setActive] = useState(null);
+
+  const openModal = (member) => setActive(member);
+  const closeModal = () => setActive(null);
 
   return (
     <>
@@ -126,12 +131,12 @@ export default function Team() {
 
         <div className="tm-grid">
           {TEAM.map((member, i) => (
-            <TeamCard key={i} member={member} onView={setActive} />
+            <TeamCard key={i} member={member} onView={openModal} />
           ))}
         </div>
       </section>
 
-      <ProfileModal member={active} onClose={() => setActive(null)} />
+      <ProfileModal member={active} onClose={closeModal} />
 
       <section className="cta-section">
         <div className="cta-overlay"></div>
