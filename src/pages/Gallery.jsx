@@ -12,15 +12,16 @@ const REAL_IMGS = [
 const LOGO_PLACEHOLDER = '/hookah69-logo.png'; // fallback — will use CSS gradient
 
 const ALL_ITEMS = [
-  { img: '/gallery/lounge1.jpeg', title: 'Main Lounge Area',    desc: 'Our luxurious main lounge with mountain views',     date: '2024-02-15', featured: true  },
-  { img: '/gallery/lounge2.jpeg', title: 'Lounge',              desc: 'Comfortable lounge area for gatherings',    date: '2024-02-10', featured: true  },
-  { img: '/gallery/lounge3.jpeg', title: 'Outdoor Seating',     desc: 'Beautiful outdoor space with open-air ambience',    date: '2024-02-05', featured: false },
-  // ── ADD YOUR VIDEOS BELOW ──
-  { img: '/gallery/menu.jpeg', video: '/gallery/video1.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
-
+  { img: '/gallery/hookah2.jpeg', title: 'Hookah Experience',  desc: 'Premium hookah sessions at Hookah69',           date: '2024-02-10', featured: true  },
+  { img: '/gallery/hookah1.PNG',  title: 'Hookah Setup',       desc: 'Our signature hookah setup and flavors',        date: '2024-02-15', featured: false },
+  { img: '/gallery/lounge2.jpeg', title: 'Lounge',             desc: 'Comfortable lounge area for private gatherings', date: '2024-02-10', featured: true },
+  { img: '/gallery/lounge1.jpeg', title: 'Main Lounge Area',   desc: 'Our luxurious main lounge with mountain views',  date: '2024-02-12', featured: false },
+  { img: '/gallery/lounge3.jpeg', title: 'Outdoor Seating',    desc: 'Beautiful outdoor space with open-air ambience', date: '2024-02-05', featured: false },
+  { img: '/gallery/menu.jpeg',    video: '/gallery/video1.mp4', type: 'video', title: 'Hookah69 Vibes', desc: 'Experience the atmosphere at Hookah69', date: '2024-06-27', featured: false },
+  { img: '/gallery/hookah2.jpeg', video: '/gallery/hookah3.mp4', type: 'video', title: 'Hookah Sessions', desc: 'Premium hookah experience at Hookah69', date: '2024-06-28', featured: false },
 ];
 
-const FEATURED = ALL_ITEMS.filter(i => i.featured);
+const FEATURED = ALL_ITEMS.filter(i => i.type !== 'video');
 
 export default function Gallery() {
   const trackRef = useRef(null);
@@ -73,11 +74,6 @@ export default function Gallery() {
           <p className="section-eyebrow hero-anim-1">Visual Stories</p>
           <h1 className="hero-anim-2">Our Gallery<br /><span className="gold">Moments at Hookah69</span></h1>
           <p className="hero-anim-3">Take a visual journey through our premium lounge experience</p>
-          <div className="gal-hero-stats hero-anim-4">
-            <div className="gal-stat"><span className="gold">20+</span><small>Photos</small></div>
-            <div className="gal-stat"><span className="gold">4</span><small>Videos</small></div>
-            <div className="gal-stat"><span className="gold">6</span><small>Categories</small></div>
-          </div>
         </div>
       </section>
 
@@ -112,6 +108,7 @@ export default function Gallery() {
                     controlsList="nodownload"
                     playsInline
                     preload="metadata"
+                    style={item.video === '/gallery/hookah3.mp4' ? { objectPosition: 'center 70%' } : {}}
                   />
                 ) : (
                   <img src={item.img} alt={item.title} className="gal-card-img" />
@@ -137,7 +134,6 @@ export default function Gallery() {
                     >
                       <i className="fas fa-heart"></i>
                     </button>
-                    <span className="gal-views"><i className="fas fa-eye"></i> {likes[i].count}</span>
                   </div>
                 </div>
               </div>
