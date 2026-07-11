@@ -90,7 +90,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>© {year} Hookah69 Premium Bar. All rights reserved.</p>
-        <p>Designed with <span style={{ color: 'var(--orange)' }}>♥</span> in Kathmandu</p>
+        <p>Designed by Aptavision Technology <span style={{ color: 'var(--orange)' }}>♥</span></p>
       </div>
     </footer>
   );
